@@ -2,6 +2,8 @@
 
 A simple month-view calendar built with vanilla HTML, CSS, and JavaScript — no frameworks, no build tools, no dependencies.
 
+**Live app:** https://neerajc9.github.io/calendar-app/
+
 ![Calendar App](https://img.shields.io/badge/HTML%2FCSS%2FJS-vanilla-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Features
