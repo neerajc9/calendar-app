@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self';">
   <title>Calendar</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -42,7 +43,7 @@
 
           <div class="form-group">
             <label for="field-title">Title <span class="required">*</span></label>
-            <input type="text" id="field-title" name="title" required autocomplete="off" placeholder="Event title">
+            <input type="text" id="field-title" name="title" required autocomplete="off" placeholder="Event title" maxlength="100">
             <span class="error-msg" id="error-title"></span>
           </div>
 
@@ -66,7 +67,7 @@
 
           <div class="form-group">
             <label for="field-description">Description</label>
-            <textarea id="field-description" name="description" rows="3" placeholder="Optional notes"></textarea>
+            <textarea id="field-description" name="description" rows="3" placeholder="Optional notes" maxlength="500"></textarea>
           </div>
 
           <div class="modal-actions">

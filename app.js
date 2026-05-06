@@ -14,10 +14,21 @@ let editingId    = null;
 
 // ── Storage ───────────────────────────────────────────────────────────────────
 
+function isValidEvent(e) {
+  return e !== null &&
+    typeof e === 'object' &&
+    typeof e.id === 'string' && e.id.length > 0 &&
+    typeof e.title === 'string' &&
+    typeof e.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(e.date) &&
+    (e.startTime === '' || (typeof e.startTime === 'string' && /^\d{2}:\d{2}$/.test(e.startTime))) &&
+    (e.endTime   === '' || (typeof e.endTime   === 'string' && /^\d{2}:\d{2}$/.test(e.endTime)));
+}
+
 function loadEvents() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    events = raw ? JSON.parse(raw) : [];
+    const parsed = raw ? JSON.parse(raw) : [];
+    events = Array.isArray(parsed) ? parsed.filter(isValidEvent) : [];
   } catch {
     events = [];
   }
